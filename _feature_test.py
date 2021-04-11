@@ -7,36 +7,78 @@ from module._requirement_func import *
 
 # chromedriver_autoinstaller.install('./utils/')
 
-options = webdriver.ChromeOptions()
-options.add_argument("disable-gpu") 
-options.add_argument("disable-infobars")
-options.add_argument("--disable-extensions")
-options.add_experimental_option('excludeSwitches', ['enable-logging'])
 
 
 
-driver = webdriver.Chrome(executable_path='./89/chromedriver.exe',options=options)
-driver.get('https://ncode.syosetu.com/n1031gv/2/')
-sleep(1)
+
+def runTrans(i):
+    print(i)
+    # try:
+    #     if i.is_displayed():
+
+    #         inner = i.get_attribute('innerHTML')
+    #         outer = i.get_attribute('outerHTML')
+            
+    #         if bool(len(re.sub(r'\s+', '', inner))):
+    #             p_html = PrettifyHtml(outer).split('\n')
+
+    #             modified_html = []
+    #             for ih in p_html:
+                    
+    #                 if re.sub(r'\s+', '', ih).startswith('<'):
+    #                     modified_html.append(ih)
+    #                 else:
+    #                     modified_html.append(t_j2k(ih))
+                    
+
+    #             ih_elements = ''.join(modified_html)
+
+    #             nDict = {}
+    #             nDict[i] = ih_elements
+
+    # except:
+    #     pass
+
+
+    # return nDict
 
 
 
-a = driver.find_elements_by_xpath('.//*[normalize-space(text())]')
+from multiprocessing import Pool, freeze_support
+if __name__ == "__main__":
+    freeze_support()
+
+    options = webdriver.ChromeOptions()
+    options.add_argument("disable-gpu") 
+    options.add_argument("disable-infobars")
+    options.add_argument("--disable-extensions")
+    options.add_experimental_option('excludeSwitches', ['enable-logging'])
+
+    driver = webdriver.Chrome(executable_path='./89/chromedriver.exe',options=options)
+    driver.get('https://syosetu.org/novel/254978/')
+    sleep(1)
 
 
 
-entire_text = []
-element_type = []
+    a = driver.find_elements_by_xpath('.//*[normalize-space(text())]')
+    pprint(a)
+    print(type(a))
 
-for i in a:
-    if i.is_displayed():
+    driver.close()
 
-        inner = i.get_attribute('innerHTML')
-        outer = i.get_attribute('outerHTML')
+    p = Pool(len(a))
+    pprint(p.map(runTrans, a))
 
-        if BeautifulSoup(inner, 'html.parser').text:
-            p_html = PrettifyHtml(outer).split('\n')
 
-            et = [ih for ih in p_html if not re.sub(r'\s+', '', ih).startswith('<')]
-            entire_text.extend(et)
-            element_type.append(i)
+
+
+    # for k, v in ele_dict.items():
+    #     try:
+    #         driver.execute_script("arguments[0].outerHTML = arguments[1]", k, v)
+    #     except:
+    #         print(v)
+
+
+# b = t_j2k('##########'.join())
+
+    

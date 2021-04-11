@@ -12,16 +12,10 @@ from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from selenium.common import exceptions
 
-from threading import Thread, Semaphore, active_count
-
-
+import asyncio
 
 from UI_MAIN import Ui_MainWindow
 
-
-# def numCount(a):
-#     for i in range(1, 3):
-#         print(a+i)
 
 
 
@@ -33,6 +27,8 @@ semap = Semaphore(5)
 class TransThread(Thread):
     def __init__(self, window, isTrans=True):
         super().__init__()
+        self.setDaemon = True
+
         self.window = window
         self.isTrans = isTrans
 
@@ -41,45 +37,38 @@ class TransThread(Thread):
     def run(self):
         try:
             start_time = time()
-            self.window.sec.setText("번역 중")
+            self.window.sec.setText("")
+            self.window.show_status.setText("번역 중")
             self.window.btnFrame.setDisabled(True)
 
             if self.isTrans:
                 
                 a = self.window.driver.find_elements_by_xpath('.//*[normalize-space(text())]')
 
-
-
-                thr = [Thread(target=self.runTrans, args=(self.ele_dict, k)) for k in a]
-                n = 10
-                thr_sep = [thr[i * n:(i + 1) * n] for i in range((len(thr) + n - 1) // n )]
-
-                for ts in thr_sep:
-
-                    for t in ts:
-                        t.start()
-
-                    for t in ts:
-                        t.join()
-
+                loop = asyncio.new_event_loop()
+                asyncio.set_event_loop(loop)
+                loop.run_until_complete(self.rt(a))
+                loop.close()
 
 
                 for k, v in self.ele_dict.items():
                     try:
                         self.window.driver.execute_script("arguments[0].outerHTML = arguments[1]", k, v)
                     except:
-                        print(v)
+                        pass
 
 
                 self.window.sec.setText(f"{int(time()-start_time)}초")
+                self.window.show_status.setText("번역 성공!")
 
                 
             else:
                 self.window.driver.refresh()
+                self.window.sec.setText("")
 
 
-        # except:
-        #     self.window.sec.setText("번역 실패!")
+        except:
+            self.window.show_status.setText("번역 실패!")
 
         finally:
             self.window.btnFrame.setDisabled(False)
@@ -87,7 +76,7 @@ class TransThread(Thread):
 
 
 
-    def runTrans(self, ele_dict, i):
+    async def runTrans(self, i):
         if i.is_displayed():
 
             inner = i.get_attribute('innerHTML')
@@ -102,12 +91,17 @@ class TransThread(Thread):
                     if re.sub(r'\s+', '', ih).startswith('<'):
                         modified_html.append(ih)
                     else:
-                        modified_html.append(t_j2k(ih))
+                        modified_html.append(t_j2k(japanese=ih))
                     
 
                 ih_elements = ''.join(modified_html)
 
                 self.ele_dict[i] = ih_elements
+
+
+    async def rt(self, a):
+        s = [asyncio.ensure_future(self.runTrans(i)) for i in a]
+        await asyncio.gather(*s)
 
 
 
@@ -131,9 +125,11 @@ class EhndTrans(QMainWindow, Ui_MainWindow):
         # }
         # options.add_experimental_option('prefs', prefs)
 
-        self.driver = webdriver.Chrome(executable_path='./89/chromedriver.exe',options=options)
-        # chromedriver_autoinstaller.install()
-        # self.driver = webdriver.Chrome(options=options)
+        # self.driver = webdriver.Chrome(executable_path='./89/chromedriver.exe',options=options)
+
+        chromedriver_autoinstaller.install()
+        self.driver = webdriver.Chrome(options=options)
+        self.driver.get("https://www.google.com")
 
         self.setupUi(self)
 

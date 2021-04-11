@@ -19,9 +19,11 @@ import codecs
 from time import sleep
 
 
+import shutil
+
+
 J2K_ENGINE_H_DLL = '.\\utils\\J2KEngine.dll'
 DAT_DIRECTORY = bytes('.\\utils\\Dat\\', encoding='utf-8')
-
 
 class TranslateEngine:
 
@@ -176,3 +178,5 @@ def t_j2k(japanese: str, isHtml=False):
     lastjpn = SetRepeat(japanese, set_repeat_num=10)[0]
     text = TransJ2K(japanese=lastjpn, isHtml=isHtml)
     return text
+
+# testURL = https://ncode.syosetu.com/n1031gv/3
