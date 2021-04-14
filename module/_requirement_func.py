@@ -4,8 +4,6 @@
 from module._translate_j2k import *
 from bs4 import BeautifulSoup
 from webbrowser import open_new
-from threading import Thread, Semaphore
-from multiprocessing import Process, freeze_support
 import re
 from time import time
 from pprint import pprint

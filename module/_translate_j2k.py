@@ -162,12 +162,12 @@ def TransJ2K(japanese: str, isHtml=False):
         else:
             text = text.replace('”', '"')
 
-
         text = text.replace('”', '')
 
 
     else:
         text = sub('p[\w]*&[\w]*[:|.|a-zA-Z]', '', text)
+
 
     return text
 
