@@ -9,8 +9,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>639</width>
-    <height>193</height>
+    <width>649</width>
+    <height>198</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -52,6 +52,11 @@
        <width>91</width>
        <height>28</height>
       </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>11</pointsize>
+      </font>
      </property>
      <property name="text">
       <string>리로드</string>
@@ -128,7 +133,7 @@
       <property name="geometry">
        <rect>
         <x>50</x>
-        <y>8</y>
+        <y>6</y>
         <width>101</width>
         <height>20</height>
        </rect>
@@ -169,16 +174,16 @@
      <widget class="QPushButton" name="show_ori_btn">
       <property name="geometry">
        <rect>
-        <x>10</x>
-        <y>55</y>
-        <width>131</width>
+        <x>90</x>
+        <y>5</y>
+        <width>71</width>
         <height>31</height>
        </rect>
       </property>
       <property name="font">
        <font>
         <family>Consolas</family>
-        <pointsize>11</pointsize>
+        <pointsize>10</pointsize>
         <weight>50</weight>
         <bold>false</bold>
        </font>
@@ -190,16 +195,16 @@
      <widget class="QPushButton" name="show_trans_btn">
       <property name="geometry">
        <rect>
-        <x>10</x>
+        <x>7</x>
         <y>5</y>
-        <width>131</width>
+        <width>81</width>
         <height>31</height>
        </rect>
       </property>
       <property name="font">
        <font>
         <family>Consolas</family>
-        <pointsize>11</pointsize>
+        <pointsize>10</pointsize>
         <weight>50</weight>
         <bold>false</bold>
        </font>
@@ -211,14 +216,55 @@
      <widget class="QPushButton" name="stop_trans_btn">
       <property name="geometry">
        <rect>
-        <x>147</x>
+        <x>163</x>
         <y>5</y>
-        <width>75</width>
-        <height>81</height>
+        <width>61</width>
+        <height>31</height>
        </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+       </font>
       </property>
       <property name="text">
        <string>번역 중지</string>
+      </property>
+     </widget>
+     <widget class="QCheckBox" name="isPrintBoth">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>36</y>
+        <width>151</width>
+        <height>19</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>원문/번역문 동시 출력</string>
+      </property>
+     </widget>
+     <widget class="QCheckBox" name="isAutoTrans">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>52</y>
+        <width>211</width>
+        <height>19</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>페이지 바뀔 때마다 자동 번역</string>
       </property>
      </widget>
     </widget>
@@ -251,7 +297,7 @@
       </property>
       <property name="text">
        <string>제작자: kdr 
-  V.210415</string>
+  V.210418</string>
       </property>
      </widget>
      <widget class="QPushButton" name="go_dev_page">
