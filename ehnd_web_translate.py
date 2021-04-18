@@ -94,7 +94,7 @@ class TransThread(QThread):
                 self.window.show_status.setText("번역 중")
                 a = self.window.driver.find_elements_by_xpath('.//*[normalize-space(text())]')
                 async_loop(self.rt, a)
-                self.window.sec.setText(f"{int(time()-start_time)}초")
+                self.window.sec.setText(f"{round(time()-start_time, 3)}초")
                 self.window.show_status.setText("번역 성공")
                 
             else:
@@ -102,8 +102,8 @@ class TransThread(QThread):
                 self.window.sec.setText("")
                 self.window.show_status.setText("원본 보기")
 
-        except:
-            self.window.show_status.setText("번역 실패")
+        # except:
+        #     self.window.show_status.setText("번역 실패")
 
         finally:
             self.window.btnSetting(setNum=1)
@@ -135,12 +135,13 @@ class TransThread(QThread):
                                     # k = f"{ih}({k})"
                                     k = f"{ih}<br>{k}"
                                 modified_html.append(k)
-                                print("번역O -> ", ih)
-
+                                if self.window.isPrintLog.isChecked():
+                                    print("번역O -> ", ih)
 
                             else:
                                 modified_html.append(ih)
-                                print("번역X -> ", ih)
+                                if self.window.isPrintLog.isChecked():
+                                    print("번역X -> ", ih)
                                 
 
                     ih_elements = ''.join(modified_html)
@@ -149,7 +150,8 @@ class TransThread(QThread):
 
 
         except exceptions.StaleElementReferenceException:
-            print("StaleElementRefernceException")
+            if self.window.isPrintLog.isChecked():
+                print("StaleElementRefernceException")
 
 
     async def rt(self, a):
@@ -183,7 +185,7 @@ class EhndTrans(QMainWindow, Ui_MainWindow):
 
         chromedriver_autoinstaller.install('./')
         self.driver = webdriver.Chrome(options=options)
-        self.driver.get("https://www.google.com")
+        self.driver.get("https://syosetu.org/novel/245389/4.html")
 
         self.setupUi(self)
 

@@ -1,1 +1,0 @@
-pyinstaller --noupx --onefile -i "./사요.ico"  "./main.py"

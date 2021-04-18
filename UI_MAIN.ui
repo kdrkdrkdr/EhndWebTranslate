@@ -90,7 +90,7 @@
      <widget class="QLabel" name="sec">
       <property name="geometry">
        <rect>
-        <x>86</x>
+        <x>74</x>
         <y>1</y>
         <width>61</width>
         <height>31</height>
@@ -132,7 +132,7 @@
      <widget class="QLabel" name="show_status">
       <property name="geometry">
        <rect>
-        <x>50</x>
+        <x>46</x>
         <y>6</y>
         <width>101</width>
         <height>20</height>
@@ -235,7 +235,7 @@
       <property name="geometry">
        <rect>
         <x>10</x>
-        <y>36</y>
+        <y>37</y>
         <width>151</width>
         <height>19</height>
        </rect>
@@ -253,7 +253,7 @@
       <property name="geometry">
        <rect>
         <x>10</x>
-        <y>52</y>
+        <y>54</y>
         <width>211</width>
         <height>19</height>
        </rect>
@@ -265,6 +265,24 @@
       </property>
       <property name="text">
        <string>페이지 바뀔 때마다 자동 번역</string>
+      </property>
+     </widget>
+     <widget class="QCheckBox" name="isPrintLog">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>71</y>
+        <width>211</width>
+        <height>19</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>번역 로그 출력</string>
       </property>
      </widget>
     </widget>
