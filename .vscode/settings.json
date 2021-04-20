@@ -4,7 +4,7 @@
     "python.linting.pylintArgs": [
         "--disable=all",
         "--enable=E",
-        "--extension-pkg-whitelist=PySide2"
+        "--extension-pkg-whitelist=PySide2,PyQt5"
     ]
     
 }

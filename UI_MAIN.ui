@@ -315,7 +315,7 @@
       </property>
       <property name="text">
        <string>제작자: kdr 
-  V.210418</string>
+  V.210420</string>
       </property>
      </widget>
      <widget class="QPushButton" name="go_dev_page">

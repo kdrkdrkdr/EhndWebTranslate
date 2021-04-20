@@ -1,5 +1,6 @@
 #-*- coding:utf-8 -*-
 
+
 from module._translate_j2k import t_j2k
 from module._requirement_func import *
 
@@ -11,6 +12,8 @@ import chromedriver_autoinstaller
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from selenium.common import exceptions
+
+import threading
 
 import asyncio
 
@@ -63,20 +66,21 @@ class AutoTrans(QThread):
             sleep(1)
             new_url = self.window.driver.current_url
             if current_url != new_url:
-                # self.window.show_status.setText("자동 번역 중")
+                self.window.st.stop()
+                self.window.st.isAuto = True
                 self.window.st.start()
                 current_url = new_url
 
 
 
 class TransThread(QThread):
-    def __init__(self, window, isTrans=True):
+    def __init__(self, window, isTrans=True, isAuto=False):
         QThread.__init__(self)
-        self.working = True
         self.window = window
         self.isTrans = isTrans
+        self.isAuto = isAuto
         self.setTerminationEnabled = True
-
+        
 
     def stop(self):
         self.window.btnSetting(setNum=1)
@@ -91,7 +95,11 @@ class TransThread(QThread):
             self.window.sec.setText("")
 
             if self.isTrans:
-                self.window.show_status.setText("번역 중")
+                if self.isAuto:
+                    self.window.show_status.setText("자동 번역 중")
+                else:
+                    self.window.show_status.setText("번역 중")
+
                 a = self.window.driver.find_elements_by_xpath('.//*[normalize-space(text())]')
                 async_loop(self.rt, a)
                 self.window.sec.setText(f"{round(time()-start_time, 3)}초")
@@ -102,8 +110,8 @@ class TransThread(QThread):
                 self.window.sec.setText("")
                 self.window.show_status.setText("원본 보기")
 
-        # except:
-        #     self.window.show_status.setText("번역 실패")
+        except:
+            self.window.show_status.setText("번역 실패")
 
         finally:
             self.window.btnSetting(setNum=1)
@@ -133,7 +141,7 @@ class TransThread(QThread):
                                 k = t_j2k(japanese=ih)
                                 if self.window.isPrintBoth.isChecked(): 
                                     # k = f"{ih}({k})"
-                                    k = f"{ih}<br>{k}"
+                                    k = f"{ih}{k}"
                                 modified_html.append(k)
                                 if self.window.isPrintLog.isChecked():
                                     print("번역O -> ", ih)
@@ -185,7 +193,7 @@ class EhndTrans(QMainWindow, Ui_MainWindow):
 
         chromedriver_autoinstaller.install('./')
         self.driver = webdriver.Chrome(options=options)
-        self.driver.get("https://syosetu.org/novel/245389/4.html")
+        self.driver.get("https://www.google.com")
 
         self.setupUi(self)
 
@@ -266,7 +274,7 @@ class EhndTrans(QMainWindow, Ui_MainWindow):
 
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     import sys
     app = QApplication(sys.argv)
     et = EhndTrans()

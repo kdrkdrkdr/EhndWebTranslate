@@ -131,7 +131,7 @@ class Ui_MainWindow(object):
         self.isAutoTrans.setText(QCoreApplication.translate("MainWindow", u"\ud398\uc774\uc9c0 \ubc14\ub014 \ub54c\ub9c8\ub2e4 \uc790\ub3d9 \ubc88\uc5ed", None))
         self.isPrintLog.setText(QCoreApplication.translate("MainWindow", u"\ubc88\uc5ed \ub85c\uadf8 \ucd9c\ub825", None))
         self.dev_info.setText(QCoreApplication.translate("MainWindow", u"\uc81c\uc791\uc790: kdr \n"
-"  V.210418", None))
+"  V.210420", None))
         self.go_dev_page.setText(QCoreApplication.translate("MainWindow", u"\uc81c\uc791\uc790\n"
 "\ud648\ud398\uc774\uc9c0", None))
     # retranslateUi

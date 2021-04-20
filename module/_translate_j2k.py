@@ -1,5 +1,6 @@
 #-*- coding:utf-8 -*-
 
+
 from ctypes import (
     WinDLL,
     c_char_p,
