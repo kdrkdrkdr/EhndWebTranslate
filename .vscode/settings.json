@@ -5,6 +5,7 @@
         "--disable=all",
         "--enable=E",
         "--extension-pkg-whitelist=PySide2,PyQt5"
-    ]
+    ],
+    "git.ignoreLimitWarning": true
     
 }

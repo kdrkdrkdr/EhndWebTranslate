@@ -9,6 +9,7 @@ from time import time
 from pprint import pprint
 
 
+
 def WriteFile(text: str, filename: str):
     f = codecs.open(filename, mode='w', encoding='utf-8')
     f.write(u'{}'.format(text))
