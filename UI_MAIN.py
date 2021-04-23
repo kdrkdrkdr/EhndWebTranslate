@@ -15,7 +15,7 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.setEnabled(True)
-        MainWindow.resize(635, 416)
+        MainWindow.resize(631, 416)
         MainWindow.setMinimumSize(QtCore.QSize(268, 167))
         MainWindow.setMaximumSize(QtCore.QSize(16777215, 16777215))
         self.centralwidget = QtWidgets.QWidget(MainWindow)
@@ -141,6 +141,6 @@ class Ui_MainWindow(object):
         self.isAutoTrans.setText(_translate("MainWindow", "페이지 바뀔 때마다 자동 번역"))
         self.isPrintLog.setText(_translate("MainWindow", "번역 로그 출력"))
         self.dev_info.setText(_translate("MainWindow", "제작자: kdr \n"
-"  V.210420"))
+"  V.210422"))
         self.go_dev_page.setText(_translate("MainWindow", "제작자\n"
 "홈페이지"))

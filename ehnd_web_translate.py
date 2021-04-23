@@ -14,8 +14,11 @@ from selenium.webdriver import Chrome
 from selenium.webdriver.chrome.options import Options
 from selenium.common import exceptions
 from selenium.webdriver.chrome.service import Service as ChromeService
+from selenium.webdriver.common.by import By
 
 from subprocess import CREATE_NO_WINDOW
+
+from pathlib import Path
 
 import asyncio
 
@@ -30,6 +33,7 @@ def async_loop(func, *args):
     asyncio.set_event_loop(loop)
     loop.run_until_complete(func(*args))
     loop.close()
+
 
 
 
@@ -50,7 +54,7 @@ class LoadDriverWindow(QThread):
             self.window.window_list.addItem(self.window.driver.title)
 
         self.window.driver.switch_to.window(cwh)
-        # self.window.log_browser.append("LoadDriverWindow")
+
 
 
 
@@ -77,6 +81,37 @@ class AutoTrans(QThread):
 
 
 
+
+# class CheckNewElement(QThread):
+#     def __init__(self, window):
+#         QThread.__init__(self)
+#         self.window = window
+
+
+#     def stop(self):
+#         self.window.printLog("일단 한 번 멈추고")
+#         self.terminate()
+
+
+#     def run(self):
+#         current_element_len = len(self.window.st.a)
+#         while True:
+#             sleep(1)
+#             if not self.window.st.isRunning():
+#                 print(current_element_len)
+#                 new_element = self.window.driver.find_elements_by_xpath('.//*[normalize-space(text())]')
+                
+#                 if len(new_element) > current_element_len:
+#                     self.window.st.a = new_element[current_element_len:]
+#                     self.window.st.isCheckNew = True
+#                     self.window.st.start()
+
+#                 current_element_len = len(self.window.st.a)
+                
+
+
+
+
 class TransThread(QThread):
     def __init__(self, window, isTrans=True, isAuto=False):
         QThread.__init__(self)
@@ -84,7 +119,6 @@ class TransThread(QThread):
         self.isTrans = isTrans
         self.isAuto = isAuto
         self.setTerminationEnabled = True
-        
 
     def stop(self):
         self.window.btnSetting(setNum=1)
@@ -104,8 +138,9 @@ class TransThread(QThread):
                 else:
                     self.window.show_status.setText("번역 중")
 
-                a = self.window.driver.find_elements_by_xpath('.//*[normalize-space(text())]')
+                a = self.window.driver.find_elements(By.XPATH, './/*[normalize-space(text())]')
                 async_loop(self.rt, a)
+
                 self.window.sec.setText(f"{round(time()-start_time, 3)}초")
                 self.window.show_status.setText("번역 성공")
                 
@@ -119,6 +154,7 @@ class TransThread(QThread):
 
         finally:
             self.window.btnSetting(setNum=1)
+            
 
 
 
@@ -161,13 +197,20 @@ class TransThread(QThread):
 
 
         except exceptions.StaleElementReferenceException:
-            # self.window.printLog("StaleElementRefernceException")
             pass
+
+
 
 
     async def rt(self, a):
         s = [asyncio.ensure_future(self.runTrans(i)) for i in a]
         await asyncio.gather(*s)
+
+
+
+
+
+
 
 
 
@@ -177,14 +220,14 @@ class EhndTrans(QMainWindow, Ui_MainWindow):
         super().__init__()
 
         self.lastUrl = ""
-        
 
+        self.lastTextNode = None
 
         options = Options()
+        options.add_argument('--force-dark-mode')
+        options.add_argument(f"--user-data-dir={Path.home()}\\AppData\\Local\\Google\\Chrome\\User Data\\Default")
         options.add_experimental_option("excludeSwitches" , ["enable-automation", "load-extension", "enable-logging"])
-
-        # self.driver = Chrome(executable_path='./89/chromedriver.exe',options=options)
-
+        
         path = chromedriver_autoinstaller.install('./')
         chrome_service = ChromeService(path)
         chrome_service.creationflags = CREATE_NO_WINDOW
@@ -192,10 +235,10 @@ class EhndTrans(QMainWindow, Ui_MainWindow):
 
         self.driver = Chrome(options=options, service=chrome_service)
         
-        self.driver.get("https://www.google.com")
+        # self.driver.get("https://google.com")
 
         self.setupUi(self)
-
+        self.setWindowIcon(QIcon("./utils/sayo.ico"))
 
         self.show_trans_btn.clicked.connect(self.showTrans)
         self.show_ori_btn.clicked.connect(self.showOri)
@@ -204,12 +247,12 @@ class EhndTrans(QMainWindow, Ui_MainWindow):
         self.stop_trans_btn.clicked.connect(self.stopTrans)
         self.window_list.currentIndexChanged.connect(self.setWindow)
         self.isAutoTrans.stateChanged.connect(self.autoTrans)
-        
 
         self.st = TransThread(self, isTrans=True)
         self.so = TransThread(self, isTrans=False)
         self.ldw = LoadDriverWindow(self)
         self.at = AutoTrans(self)
+        # self.cne = CheckNewElement(self)
 
 
         self.btnSetting(setNum=1)
