@@ -1,1 +1,1 @@
-pyuic5.exe .\UI_MAIN.ui -o .\UI_MAIN.py
+pyside2-uic .\UI_MAIN.ui -o .\UI_MAIN.py

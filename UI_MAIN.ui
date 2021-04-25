@@ -9,7 +9,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>631</width>
+    <width>632</width>
     <height>416</height>
    </rect>
   </property>
@@ -315,7 +315,7 @@
       </property>
       <property name="text">
        <string>제작자: kdr 
-  V.210422</string>
+  V.210425</string>
       </property>
      </widget>
      <widget class="QPushButton" name="go_dev_page">

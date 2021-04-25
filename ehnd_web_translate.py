@@ -4,9 +4,9 @@
 from module._translate_j2k import t_j2k
 from module._requirement_func import *
 
-from PyQt5.QtCore import *
-from PyQt5.QtGui import *
-from PyQt5.QtWidgets import *
+from PySide2.QtCore import *
+from PySide2.QtGui import *
+from PySide2.QtWidgets import *
 
 import chromedriver_autoinstaller
 
@@ -26,6 +26,8 @@ from UI_MAIN import Ui_MainWindow
 
 
 findJpn = re.compile('[\u3000-\u303f\u3040-\u309f\u30a0-\u30ff\uff00-\uff9f\u4e00-\u9faf\u3400-\u4dbf]')
+
+
 
 
 def async_loop(func, *args):
@@ -198,6 +200,7 @@ class TransThread(QThread):
 
         except exceptions.StaleElementReferenceException:
             pass
+            # self.window.printLog("StaleElementReferenceException")
 
 
 
@@ -221,8 +224,6 @@ class EhndTrans(QMainWindow, Ui_MainWindow):
 
         self.lastUrl = ""
 
-        self.lastTextNode = None
-
         options = Options()
         options.add_argument('--force-dark-mode')
         options.add_argument(f"--user-data-dir={Path.home()}\\AppData\\Local\\Google\\Chrome\\User Data\\Default")
@@ -240,11 +241,11 @@ class EhndTrans(QMainWindow, Ui_MainWindow):
         self.setupUi(self)
         self.setWindowIcon(QIcon("./utils/sayo.ico"))
 
-        self.show_trans_btn.clicked.connect(self.showTrans)
-        self.show_ori_btn.clicked.connect(self.showOri)
-        self.go_dev_page.clicked.connect(self.goDevPage)
-        self.reloadBtn.clicked.connect(self.reloadWindow)
-        self.stop_trans_btn.clicked.connect(self.stopTrans)
+        QObject.connect(self.show_trans_btn, SIGNAL('clicked()'), self.showTrans)
+        QObject.connect(self.show_ori_btn, SIGNAL('clicked()'), self.showOri)
+        QObject.connect(self.go_dev_page, SIGNAL('clicked()'), self.goDevPage)
+        QObject.connect(self.reloadBtn, SIGNAL('clicked()'), self.reloadWindow)
+        QObject.connect(self.stop_trans_btn, SIGNAL('clicked()'), self.stopTrans)
         self.window_list.currentIndexChanged.connect(self.setWindow)
         self.isAutoTrans.stateChanged.connect(self.autoTrans)
 
