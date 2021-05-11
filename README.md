@@ -1,3 +1,3 @@
 # EhndWebTranslate
 
-[![Github All Releases](https://img.shields.io/github/downloads/kdrkdrkdr/EhndWebTranslate/total.svg)]()
+[![GitHub downloads](https://img.shields.io/github/downloads/kdrkdrkdr/EhndWebTranslate/total.svg?logo=github)](https://github.com/kdrkdrkdr/EhndWebTranslate/releases)
