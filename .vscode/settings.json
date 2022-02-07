@@ -1,0 +1,11 @@
+{
+    "python.pythonPath": "C:\\Users\\power\\AppData\\Local\\Programs\\Python\\Python37-32\\python.exe",
+    "python.linting.pylintEnabled": true,
+    "python.linting.pylintArgs": [
+        "--disable=all",
+        "--enable=E",
+        "--extension-pkg-whitelist=PySide2,cv2"
+    ],
+    "git.ignoreLimitWarning": true
+    
+}

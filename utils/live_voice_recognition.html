@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src='annyang.js'></script>
+<script>
+    annyang.start({ autoRestart: true, continuous: true })
+	var recognition = annyang.getSpeechRecognizer();
+	var final_transcript = '';
+	recognition.interimResults = true;
+	recognition.onresult = function(event) {
+		var interim_transcript = '';
+		final_transcript = '';
+		for (var i = event.resultIndex; i < event.results.length; ++i) {
+			if (event.results[i].isFinal) {
+				final_transcript += event.results[i][0].transcript;
+				console.log("final_transcript="+final_transcript);
+			} else {
+				interim_transcript += event.results[i][0].transcript;
+				console.log("interim_transcript="+interim_transcript);
+			}
+		}
+		document.getElementById('mid').innerText = interim_transcript
+		document.getElementById('fin').innerText = final_transcript
+		console.log('interim='+interim_transcript+'|final='+final_transcript);
+	};
+</script>
+</head>
+<div id='result'>
+음성인식 패널입니다.
+</br>
+</br>
+<div id='mid'></div><div id='fin'></div>
+</div>
+</body>
+</html>
+

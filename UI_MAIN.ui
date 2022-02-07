@@ -1,0 +1,1249 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="enabled">
+   <bool>true</bool>
+  </property>
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>859</width>
+    <height>642</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>268</width>
+    <height>167</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>16777215</width>
+    <height>16777215</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>Ehnd 웹 번역</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QFrame" name="timeFrame">
+    <property name="geometry">
+     <rect>
+      <x>180</x>
+      <y>587</y>
+      <width>161</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::Box</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <widget class="QLabel" name="sec">
+     <property name="geometry">
+      <rect>
+       <x>72</x>
+       <y>6</y>
+       <width>81</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QLabel" name="trans_time">
+     <property name="geometry">
+      <rect>
+       <x>8</x>
+       <y>6</y>
+       <width>61</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>번역 시간:</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QFrame" name="status_frame">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>587</y>
+      <width>161</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::Box</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <widget class="QLabel" name="show_status">
+     <property name="geometry">
+      <rect>
+       <x>52</x>
+       <y>6</y>
+       <width>101</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QLabel" name="status_lbl">
+     <property name="geometry">
+      <rect>
+       <x>8</x>
+       <y>8</y>
+       <width>41</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>상태: </string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QPushButton" name="go_dev_page">
+    <property name="geometry">
+     <rect>
+      <x>354</x>
+      <y>587</y>
+      <width>111</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>제작자 홈페이지</string>
+    </property>
+   </widget>
+   <widget class="QProgressBar" name="progressBar">
+    <property name="geometry">
+     <rect>
+      <x>479</x>
+      <y>595</y>
+      <width>371</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="value">
+     <number>0</number>
+    </property>
+    <property name="format">
+     <string>%p%</string>
+    </property>
+   </widget>
+   <widget class="QTabWidget" name="tabWidget">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>10</y>
+      <width>841</width>
+      <height>571</height>
+     </rect>
+    </property>
+    <property name="currentIndex">
+     <number>0</number>
+    </property>
+    <widget class="QWidget" name="TAB_WEB">
+     <attribute name="title">
+      <string>웹 번역</string>
+     </attribute>
+     <widget class="QTextBrowser" name="log_browser">
+      <property name="geometry">
+       <rect>
+        <x>8</x>
+        <y>280</y>
+        <width>821</width>
+        <height>251</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QFrame" name="wholeFrame">
+      <property name="geometry">
+       <rect>
+        <x>7</x>
+        <y>10</y>
+        <width>821</width>
+        <height>261</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <weight>50</weight>
+        <bold>false</bold>
+       </font>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::Box</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <widget class="QFrame" name="btnFrame">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>10</y>
+         <width>261</width>
+         <height>241</height>
+        </rect>
+       </property>
+       <property name="frameShape">
+        <enum>QFrame::Box</enum>
+       </property>
+       <property name="frameShadow">
+        <enum>QFrame::Raised</enum>
+       </property>
+       <widget class="QPushButton" name="show_ori_btn">
+        <property name="geometry">
+         <rect>
+          <x>99</x>
+          <y>5</y>
+          <width>71</width>
+          <height>41</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>Consolas</family>
+          <pointsize>10</pointsize>
+          <weight>50</weight>
+          <bold>false</bold>
+         </font>
+        </property>
+        <property name="text">
+         <string>원본 보기
+Alt + o</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="show_trans_btn">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>5</y>
+          <width>81</width>
+          <height>41</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>Consolas</family>
+          <pointsize>10</pointsize>
+          <weight>50</weight>
+          <bold>false</bold>
+         </font>
+        </property>
+        <property name="text">
+         <string>번역본 보기
+Alt + t</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="stop_trans_btn">
+        <property name="geometry">
+         <rect>
+          <x>179</x>
+          <y>5</y>
+          <width>71</width>
+          <height>41</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>Consolas</family>
+          <pointsize>10</pointsize>
+          <weight>50</weight>
+          <bold>false</bold>
+         </font>
+        </property>
+        <property name="text">
+         <string>번역 중지
+Alt + s</string>
+        </property>
+       </widget>
+       <widget class="QCheckBox" name="isPrintBoth">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>51</y>
+          <width>151</width>
+          <height>23</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>10</pointsize>
+          <weight>50</weight>
+          <bold>false</bold>
+         </font>
+        </property>
+        <property name="text">
+         <string>원문/번역문 동시 출력</string>
+        </property>
+       </widget>
+       <widget class="QCheckBox" name="isAutoTrans">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>94</y>
+          <width>211</width>
+          <height>23</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>10</pointsize>
+          <weight>50</weight>
+          <bold>false</bold>
+         </font>
+        </property>
+        <property name="text">
+         <string>페이지 바뀔 때마다 자동 번역</string>
+        </property>
+       </widget>
+       <widget class="QCheckBox" name="isPrintLog">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>118</y>
+          <width>211</width>
+          <height>23</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>10</pointsize>
+          <weight>50</weight>
+          <bold>false</bold>
+         </font>
+        </property>
+        <property name="text">
+         <string>번역 로그 출력</string>
+        </property>
+       </widget>
+       <widget class="QCheckBox" name="isActivateSK">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>141</y>
+          <width>211</width>
+          <height>23</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>10</pointsize>
+          <weight>50</weight>
+          <bold>false</bold>
+         </font>
+        </property>
+        <property name="text">
+         <string>단축키 활성화</string>
+        </property>
+       </widget>
+       <widget class="QCheckBox" name="isActivateFF">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>165</y>
+          <width>211</width>
+          <height>23</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>10</pointsize>
+          <weight>50</weight>
+          <bold>false</bold>
+         </font>
+        </property>
+        <property name="text">
+         <string>강제 필터 활성화</string>
+        </property>
+       </widget>
+       <widget class="QCheckBox" name="isActivateRO">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>188</y>
+          <width>211</width>
+          <height>23</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>10</pointsize>
+          <weight>50</weight>
+          <bold>false</bold>
+         </font>
+        </property>
+        <property name="text">
+         <string>[한자] 형태 제거</string>
+        </property>
+       </widget>
+       <widget class="QCheckBox" name="isPrintFuri">
+        <property name="geometry">
+         <rect>
+          <x>29</x>
+          <y>71</y>
+          <width>151</width>
+          <height>23</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>10</pointsize>
+          <weight>50</weight>
+          <bold>false</bold>
+         </font>
+        </property>
+        <property name="text">
+         <string>후리가나 출력</string>
+        </property>
+       </widget>
+       <widget class="QCheckBox" name="isTransImage">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>211</y>
+          <width>211</width>
+          <height>23</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>10</pointsize>
+          <weight>50</weight>
+          <bold>false</bold>
+         </font>
+        </property>
+        <property name="text">
+         <string>이미지 번역 활성화</string>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QFrame" name="fbFrame">
+       <property name="geometry">
+        <rect>
+         <x>280</x>
+         <y>10</y>
+         <width>531</width>
+         <height>241</height>
+        </rect>
+       </property>
+       <property name="frameShape">
+        <enum>QFrame::Box</enum>
+       </property>
+       <property name="frameShadow">
+        <enum>QFrame::Raised</enum>
+       </property>
+       <widget class="QTextEdit" name="adviceContent">
+        <property name="geometry">
+         <rect>
+          <x>37</x>
+          <y>46</y>
+          <width>491</width>
+          <height>191</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="adviceSubject">
+        <property name="geometry">
+         <rect>
+          <x>37</x>
+          <y>25</y>
+          <width>491</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+       <widget class="QLabel" name="adviceLabel">
+        <property name="geometry">
+         <rect>
+          <x>5</x>
+          <y>6</y>
+          <width>151</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string># 건의 사항 및 오류 제보</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="adviceSubmitBtn">
+        <property name="geometry">
+         <rect>
+          <x>468</x>
+          <y>3</y>
+          <width>61</width>
+          <height>21</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>제출하기</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="adviceLabel_2">
+        <property name="geometry">
+         <rect>
+          <x>5</x>
+          <y>26</y>
+          <width>31</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>제목:</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="adviceLabel_3">
+        <property name="geometry">
+         <rect>
+          <x>5</x>
+          <y>45</y>
+          <width>31</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>내용:</string>
+        </property>
+       </widget>
+      </widget>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="TAB_FILE">
+     <attribute name="title">
+      <string>파일 번역</string>
+     </attribute>
+     <widget class="QTextBrowser" name="f_log_browser">
+      <property name="geometry">
+       <rect>
+        <x>21</x>
+        <y>322</y>
+        <width>791</width>
+        <height>211</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="file_select_btn">
+      <property name="geometry">
+       <rect>
+        <x>564</x>
+        <y>42</y>
+        <width>81</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>파일 선택</string>
+      </property>
+     </widget>
+     <widget class="QListWidget" name="SelectedFileList">
+      <property name="geometry">
+       <rect>
+        <x>22</x>
+        <y>42</y>
+        <width>531</width>
+        <height>221</height>
+       </rect>
+      </property>
+      <property name="dragDropMode">
+       <enum>QAbstractItemView::NoDragDrop</enum>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_2">
+      <property name="geometry">
+       <rect>
+        <x>23</x>
+        <y>22</y>
+        <width>131</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>선택한 파일 리스트</string>
+      </property>
+     </widget>
+     <widget class="QFrame" name="frame">
+      <property name="geometry">
+       <rect>
+        <x>564</x>
+        <y>81</y>
+        <width>251</width>
+        <height>181</height>
+       </rect>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::Box</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <widget class="QCheckBox" name="f_isPrintBoth">
+       <property name="geometry">
+        <rect>
+         <x>7</x>
+         <y>7</y>
+         <width>151</width>
+         <height>23</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+         <weight>50</weight>
+         <bold>false</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>원문/번역문 동시 출력</string>
+       </property>
+      </widget>
+      <widget class="QCheckBox" name="f_isActivateRO">
+       <property name="geometry">
+        <rect>
+         <x>7</x>
+         <y>68</y>
+         <width>121</width>
+         <height>23</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+         <weight>50</weight>
+         <bold>false</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>[한자] 형태 제거</string>
+       </property>
+      </widget>
+      <widget class="QCheckBox" name="f_isActivateFF">
+       <property name="geometry">
+        <rect>
+         <x>7</x>
+         <y>38</y>
+         <width>131</width>
+         <height>23</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+         <weight>50</weight>
+         <bold>false</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>강제 필터 활성화</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label">
+       <property name="geometry">
+        <rect>
+         <x>6</x>
+         <y>124</y>
+         <width>231</width>
+         <height>51</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>지원 확장자: TXT, DOCX, PPTX, XLSX,
+                  CSV, PDF, JPG, PNG,
+                  MP3, MP4</string>
+       </property>
+      </widget>
+      <widget class="QCheckBox" name="f_isActive_F_Sound">
+       <property name="geometry">
+        <rect>
+         <x>7</x>
+         <y>98</y>
+         <width>231</width>
+         <height>23</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+         <weight>50</weight>
+         <bold>false</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>음성 번역 목소리 여성으로 바꾸기</string>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QCheckBox" name="select_all">
+      <property name="geometry">
+       <rect>
+        <x>474</x>
+        <y>22</y>
+        <width>81</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+        <weight>50</weight>
+        <bold>false</bold>
+       </font>
+      </property>
+      <property name="text">
+       <string>모두 선택</string>
+      </property>
+      <property name="checked">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="transed_file_dir">
+      <property name="geometry">
+       <rect>
+        <x>24</x>
+        <y>293</y>
+        <width>551</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="readOnly">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_3">
+      <property name="geometry">
+       <rect>
+        <x>23</x>
+        <y>272</y>
+        <width>471</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;번역된 파일 저장할 폴더 위치:  &lt;span style=&quot; color:#ff0000;&quot;&gt;파일 번역 전에 반드시 저장할 폴더를 선택해주세요! &lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="select_file_dir_btn">
+      <property name="geometry">
+       <rect>
+        <x>594</x>
+        <y>292</y>
+        <width>75</width>
+        <height>23</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>폴더 선택</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="file_translate_btn">
+      <property name="geometry">
+       <rect>
+        <x>649</x>
+        <y>42</y>
+        <width>81</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>파일 번역</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="file_translate_stop_btn">
+      <property name="geometry">
+       <rect>
+        <x>735</x>
+        <y>42</y>
+        <width>81</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>번역 중지</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="open_file_dir_btn">
+      <property name="geometry">
+       <rect>
+        <x>674</x>
+        <y>293</y>
+        <width>75</width>
+        <height>23</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>폴더 열기</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="clear_fileList_btn">
+      <property name="geometry">
+       <rect>
+        <x>364</x>
+        <y>20</y>
+        <width>101</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>파일 전체 비우기</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="TAB_NOVEL">
+     <attribute name="title">
+      <string>소설 번역</string>
+     </attribute>
+     <widget class="QListWidget" name="novel_idx">
+      <property name="geometry">
+       <rect>
+        <x>4</x>
+        <y>30</y>
+        <width>241</width>
+        <height>291</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLabel" name="indexLabel">
+      <property name="geometry">
+       <rect>
+        <x>2</x>
+        <y>6</y>
+        <width>51</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>목차</string>
+      </property>
+     </widget>
+     <widget class="QTextBrowser" name="syosetuBrowser">
+      <property name="geometry">
+       <rect>
+        <x>254</x>
+        <y>53</y>
+        <width>571</width>
+        <height>431</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+     </widget>
+     <widget class="QFrame" name="frame_2">
+      <property name="geometry">
+       <rect>
+        <x>253</x>
+        <y>491</y>
+        <width>411</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::Box</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <widget class="QSpinBox" name="fontSizeBox">
+       <property name="geometry">
+        <rect>
+         <x>350</x>
+         <y>10</y>
+         <width>51</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+        </font>
+       </property>
+       <property name="minimum">
+        <number>1</number>
+       </property>
+       <property name="maximum">
+        <number>200</number>
+       </property>
+       <property name="value">
+        <number>10</number>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_7">
+       <property name="geometry">
+        <rect>
+         <x>277</x>
+         <y>5</y>
+         <width>71</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>글자 크기:</string>
+       </property>
+      </widget>
+      <widget class="QFontComboBox" name="fontComboBox">
+       <property name="geometry">
+        <rect>
+         <x>51</x>
+         <y>9</y>
+         <width>211</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>나눔고딕OTF</family>
+         <pointsize>10</pointsize>
+        </font>
+       </property>
+       <property name="currentText">
+        <string>나눔고딕OTF</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_8">
+       <property name="geometry">
+        <rect>
+         <x>6</x>
+         <y>5</y>
+         <width>41</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>폰트:</string>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QPushButton" name="prevBtn">
+      <property name="geometry">
+       <rect>
+        <x>670</x>
+        <y>491</y>
+        <width>75</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>이전화
+&lt;-</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="nextBtn">
+      <property name="geometry">
+       <rect>
+        <x>750</x>
+        <y>491</y>
+        <width>75</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>다음화
+-&gt;</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="syosetuUrl">
+      <property name="geometry">
+       <rect>
+        <x>320</x>
+        <y>7</y>
+        <width>441</width>
+        <height>20</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLabel" name="status_lbl_2">
+      <property name="geometry">
+       <rect>
+        <x>254</x>
+        <y>8</y>
+        <width>61</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>소설 주소:</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="loadSyosetu">
+      <property name="geometry">
+       <rect>
+        <x>764</x>
+        <y>6</y>
+        <width>61</width>
+        <height>23</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>불러오기</string>
+      </property>
+     </widget>
+     <widget class="QFrame" name="frame_3">
+      <property name="geometry">
+       <rect>
+        <x>3</x>
+        <y>322</y>
+        <width>241</width>
+        <height>211</height>
+       </rect>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::Box</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <widget class="QCheckBox" name="n_isPrintBoth">
+       <property name="geometry">
+        <rect>
+         <x>5</x>
+         <y>10</y>
+         <width>151</width>
+         <height>23</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+         <weight>50</weight>
+         <bold>false</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>원문/번역문 동시 출력</string>
+       </property>
+      </widget>
+      <widget class="QCheckBox" name="n_isActivateRO">
+       <property name="geometry">
+        <rect>
+         <x>5</x>
+         <y>51</y>
+         <width>121</width>
+         <height>23</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+         <weight>50</weight>
+         <bold>false</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>[한자] 형태 제거</string>
+       </property>
+      </widget>
+      <widget class="QCheckBox" name="n_isActivateFF">
+       <property name="geometry">
+        <rect>
+         <x>5</x>
+         <y>31</y>
+         <width>131</width>
+         <height>23</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+         <weight>50</weight>
+         <bold>false</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>강제 필터 활성화</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_6">
+       <property name="geometry">
+        <rect>
+         <x>6</x>
+         <y>78</y>
+         <width>111</width>
+         <height>121</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string># 번역 지원 사이트
+syosetu.org
+syosetu.com
+kakuyomu.jp         
+alphapolis.co.jp
+pixiv.net
+novelist.jp
+estar.jp</string>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QLabel" name="novel_title">
+      <property name="geometry">
+       <rect>
+        <x>254</x>
+        <y>29</y>
+        <width>571</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>제목: </string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="TAB_NORMAL">
+     <attribute name="title">
+      <string>일반 번역</string>
+     </attribute>
+     <widget class="QTextEdit" name="japaneseText">
+      <property name="geometry">
+       <rect>
+        <x>9</x>
+        <y>40</y>
+        <width>361</width>
+        <height>451</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>13</pointsize>
+       </font>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="normalTransBtn">
+      <property name="geometry">
+       <rect>
+        <x>377</x>
+        <y>217</y>
+        <width>81</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>일한 번역
+-&gt;</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_4">
+      <property name="geometry">
+       <rect>
+        <x>8</x>
+        <y>17</y>
+        <width>56</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>일본어</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_5">
+      <property name="geometry">
+       <rect>
+        <x>462</x>
+        <y>17</y>
+        <width>56</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>한국어</string>
+      </property>
+     </widget>
+     <widget class="QTextBrowser" name="koreanText">
+      <property name="geometry">
+       <rect>
+        <x>464</x>
+        <y>40</y>
+        <width>361</width>
+        <height>451</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>13</pointsize>
+       </font>
+      </property>
+     </widget>
+     <widget class="QCheckBox" name="isLiveTrans">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>494</y>
+        <width>181</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>실시간 음성 번역</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="copyKtext">
+      <property name="geometry">
+       <rect>
+        <x>463</x>
+        <y>497</y>
+        <width>61</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>복사 하기</string>
+      </property>
+     </widget>
+    </widget>
+   </widget>
+  </widget>
+  <widget class="QStatusBar" name="statusBar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
