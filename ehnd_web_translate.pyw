@@ -231,7 +231,7 @@ class SendFeedback(QThread):
             
             s = smtplib.SMTP('smtp.gmail.com', 587)
             s.starttls()
-            s.login('ehnd.webtrans.feedback@gmail.com', 'ehndwtfb')
+            s.login('', '')
             msg = MIMEText(e_con)
             msg['Subject'] = e_sub
             s.sendmail("ehnd.webtrans.feedback@gmail.com", "ehnd.webtrans.feedback@gmail.com", msg.as_string())
